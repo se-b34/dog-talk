@@ -88,3 +88,6 @@
   @media only screen and (max-width: 300px) {
     .prev, .next,.text {font-size: 11px}
   }
+body {
+    background-color: blue;
+}
