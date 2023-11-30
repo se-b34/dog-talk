@@ -105,3 +105,19 @@
   width: 450px;
   text-align:right;
 }
+
+footer {
+  border: solid;
+}
+
+footer .contact-us {
+  text-align: left top;
+}
+
+footer .footer-logo {
+  text-align: center;
+}
+
+footer .vet-approved {
+  text-align: right;
+}
