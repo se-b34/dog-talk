@@ -15,7 +15,7 @@
 
         <!-- Personal CSS File -->
         <link rel="stylesheet" type="text/css" href="style.css">
-        <link rel="stylesheet" type="text/css" href="language-style.css">
+        
 
 
         <title>All Languages Page</title>
@@ -43,18 +43,86 @@
                 </ul>
             </div>
         </nav>
+        
+          
+        
+          <div class="row">
+              <div class="col-2">
+                <h2>Filter DIV Elements</h2>
 
-        <div class="container col-1">
-            <h2>Filter </h2>
-            <input class="form-control" id="myInput" type="text" placeholder="Search..">
-            <br>
-            <ul class="list-group" id="myList">
-              <li class="list-group-item">First item</li>
-              <li class="list-group-item">Second item</li>
-              <li class="list-group-item">Third item</li>
-              <li class="list-group-item">Fourth</li>
-            </ul>  
+                <div id="myBtnContainer">
+                  <button class="btn active" onclick="filterSelection('all')"> Show all</button><br>
+                  <button class="btn" onclick="filterSelection('cars')"> Cars</button><br>
+                  <button class="btn" onclick="filterSelection('animals')"> Animals</button><br>
+                  <button class="btn" onclick="filterSelection('fruits')"> Fruits</button><br>
+                  <button class="btn" onclick="filterSelection('colors')"> Colors</button><br>
+                </div>
+              </div>
+              <div class="laguages-page-food col-7">
+                <div class="container ">
+                  <div class="filterDiv cars">BMW</div>
+                  <div class="filterDiv colors fruits">Orange</div>
+                  <div class="filterDiv cars">Volvo</div>
+                  <div class="filterDiv colors">Red</div>
+                  <div class="filterDiv cars">Ford</div>
+                  <div class="filterDiv colors">Blue</div>
+                  <div class="filterDiv animals">Cat</div>
+                  <div class="filterDiv animals">Dog</div>
+                  <div class="filterDiv fruits">Melon</div>
+                  <div class="filterDiv fruits animals">Kiwi</div>
+                  <div class="filterDiv fruits">Banana</div>
+                  <div class="filterDiv fruits">Lemon</div>
+                  <div class="filterDiv animals">Cow</div>
+                </div>
+              </div>
           </div>
+        </div>
+
+        <script>
+          filterSelection("all")
+          function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("filterDiv");
+            if (c == "all") c = "";
+            for (i = 0; i < x.length; i++) {
+              w3RemoveClass(x[i], "show");
+              if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+            }
+          }
+          
+          function w3AddClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+              if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+            }
+          }
+          
+          function w3RemoveClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+              while (arr1.indexOf(arr2[i]) > -1) {
+                arr1.splice(arr1.indexOf(arr2[i]), 1);     
+              }
+            }
+            element.className = arr1.join(" ");
+          }
+          
+          // Add active class to the current button (highlight it)
+          var btnContainer = document.getElementById("myBtnContainer");
+          var btns = btnContainer.getElementsByClassName("btn");
+          for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function(){
+              var current = document.getElementsByClassName("active");
+              current[0].className = current[0].className.replace(" active", "");
+              this.className += " active";
+            });
+          }
+          </script>
+         
 
           <footer>
             <p>
