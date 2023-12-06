@@ -146,19 +146,31 @@ footer {
 
 }
 
-nav .navbar-custom {
-  background-color: rgb(223, 43, 43);
+.navbar-custom {
+  background-color: rgba(223, 43, 43, 0.813);
 }
 
 .filterDiv {
   float: left;
-  background-color: rgb(223, 43, 43);
+  background-color: rgba(223, 43, 43, 0.813);
   color: #ffffff;
   width: 210px;
-  line-height: 100px;
+  line-height: 25px;
   text-align: center;
   margin: 2px;
   display: none;
+  border-color: black;
+  border-style: solid;
+}
+
+.filterDiv img {
+  border:black;
+  border-style: solid;
+  margin: 2px;
+  margin-right: 2px;
+  background-color: white;
+  width: 200px;
+  height: 200px;
 }
 
 .show {
