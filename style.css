@@ -200,6 +200,14 @@ footer {
   color: white;
 }
 
-.filterDiv-english:active{
-  
+.filterDiv-english:hover .label{
+  visibility:visible;
+}
+.filterDiv-english{
+  transition:height 2s, width 2s, background-image 2.5s,transform 3s;
+}
+.filterDiv-english:hover {
+  height:400px;
+  width:400px;
+  transform:rotate (360deg);
 }
