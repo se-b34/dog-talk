@@ -200,20 +200,3 @@ footer {
   color: white;
 }
 
-div.filterDiv-english{
-  position:relative;
-  background-size:100% 100%;
-  height:100px;
-  width:100px;
-}
-.filterDiv-english:hover .label{
-  visibility:visible;
-}
-.filterDiv-english{
-  transition:height 2s, width 2s, background-image 2.5s,transform 3s;
-}
-.filterDiv-english:hover {
-  height:200px;
-  width:200px;
-  transform:rotate (360deg);
-}
