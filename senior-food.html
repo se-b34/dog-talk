@@ -42,6 +42,103 @@
             </div>
         </nav>
 
+        <div class="row">
+          <div class="col-2">
+            <h2>Filter</h2>
+
+            <div id="myBtnContainer">
+              <button class="btn active" onclick="filterSelection('all')"> Show all</button><br>
+              <button class="btn" onclick="filterSelection('english')"> English</button><br>
+              <button class="btn" onclick="filterSelection('spainish')"> Spainish</button><br>
+              <button class="btn" onclick="filterSelection('french')"> French</button><br>
+              <button class="btn" onclick="filterSelection('arabic')"> Arabic</button><br>
+              <button class="btn" onclick="filterSelection('chinese')"> Chinese</button><br>
+              <button class="btn" onclick="filterSelection('portuguese')"> Portuguese</button><br>
+            </div>
+          </div>
+          <div class="laguages-page-food col-7">
+            <div class="container ">
+
+              <div class="filterDiv english">
+                <img src="https://th.bing.com/th/id/R.14b417294b777797b6cc5bf485560869?rik=QeTGXpWq1h5OAA&pid=ImgRaw&r=0" alt="Apple Pie">
+                Apple Pie Flavor Senior Food (English)
+              </div>
+
+              <div class="filterDiv spainish">
+                <img src="https://th.bing.com/th/id/OIP.hWxKppVJQfZlNXhEdHtmvwHaE8?w=286&h=191&c=7&r=0&o=5&pid=1.7" alt="Chorizo" >
+                Chorizo Flavored Senior Food (Spanish)
+              </div>
+
+              <div class="filterDiv french">
+                <img src="https://th.bing.com/th/id/OIP.b-r_qnOZ-vLhd9Kstd6kXwHaFj?w=260&h=174&c=7&r=0&o=5&pid=1.7" alt="Chicken Basquaise" >
+                Chicken Basquaise Flavor Senior Food (French)
+              </div>
+
+              <div class="filterDiv arabic">
+                <img src="https://mybayutcdn.bayut.com/mybayut/wp-content/uploads/best-manakeesh-restaurants-in-Dubai-C-18-09.jpg" alt="Manakeesh" >
+                Manakeesh Flavored Senior Food (Arabic)
+              </div>
+
+              <div class="filterDiv chinese">
+                <img src="https://redhousespice.com/wp-content/uploads/2023/03/Sichuan-dumplings-02-scaled.jpg" alt="Sichuan Dumplings" >
+                Sichuan Dumplings Flavor Senior Food (Chinese)
+              </div>
+
+              <div class="filterDiv portuguese">
+                <img src="https://cdn-bmalj.nitrocdn.com/uirOOtSrYrqqUksKHkiSCjZGZlPeXsmk/assets/images/optimized/rev-88a144f/theplanetd.com/images/Portuguese-Food-Francesinha.jpg" alt="Francesinha" >
+                Francesinha Flavor Senior Food (Portuguese)
+              </div>
+
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <script>
+      filterSelection("all")
+      function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("filterDiv");
+        if (c == "all") c = "";
+        for (i = 0; i < x.length; i++) {
+          w3RemoveClass(x[i], "show");
+          if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+        }
+      }
+      
+      function w3AddClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+          if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+        }
+      }
+      
+      function w3RemoveClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+          while (arr1.indexOf(arr2[i]) > -1) {
+            arr1.splice(arr1.indexOf(arr2[i]), 1);     
+          }
+        }
+        element.className = arr1.join(" ");
+      }
+      
+      // Add active class to the current button (highlight it)
+      var btnContainer = document.getElementById("myBtnContainer");
+      var btns = btnContainer.getElementsByClassName("btn");
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function(){
+          var current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace(" active", "");
+          this.className += " active";
+        });
+      }
+      </script>
+
         <footer>
           <p>
             <div class="container-fluid">

@@ -41,7 +41,103 @@
             </ul>
         </div>
     </nav>
-        
+
+    <div class="row">
+      <div class="col-2">
+        <h2>Filter</h2>
+
+        <div id="myBtnContainer">
+          <button class="btn active" onclick="filterSelection('all')"> Show all</button><br>
+          <button class="btn" onclick="filterSelection('english')"> English</button><br>
+          <button class="btn" onclick="filterSelection('spainish')"> Spainish</button><br>
+          <button class="btn" onclick="filterSelection('french')"> French</button><br>
+          <button class="btn" onclick="filterSelection('arabic')"> Arabic</button><br>
+          <button class="btn" onclick="filterSelection('chinese')"> Chinese</button><br>
+          <button class="btn" onclick="filterSelection('portuguese')"> Portuguese</button><br>
+        </div>
+      </div>
+      <div class="laguages-page-food col-7">
+        <div class="container ">    
+          <div class="filterDiv english">
+            <img src="https://th.bing.com/th/id/R.28760a4b42ba752a4bfe6b2f5c0cb39f?rik=ozwTqufyRpwx3w&riu=http%3a%2f%2f3.bp.blogspot.com%2f-U7sLUveXzFc%2fUObzLeFQC7I%2fAAAAAAAAAF4%2fFroYPIevilk%2fs1600%2fhot_dog_w_mustard2.jpg&ehk=7xUEbIMBxae2aXVg%2bRm6gO7MFNIuk7%2bpvDr0QRS%2fG0I%3d&risl=&pid=ImgRaw&r=0" alt="hot dog">
+            Hot Dog Flavor Puppy Food (English)
+          </div>
+
+          <div class="filterDiv spainish">
+            <img src="https://woolworths.scene7.com/is/image/woolworthsgroupprod/2106-spiced-beef-and-olive-empanadas?wid=1300&hei=1150" alt="empandadas" >
+            Empanada Flavor Puppy Food (Spainish)
+          </div>
+
+          <div class="filterDiv french">
+            <img src="https://th.bing.com/th/id/OIP.wFz4LcT14U-tXCTPecN1ZAHaE6?rs=1&pid=ImgDetMain" alt="Foie Gras" >
+            Foie Gras Flavor Puppy Food (French)
+          </div>
+
+          <div class="filterDiv arabic">
+            <img src="https://th.bing.com/th/id/OIP.ohYnZPHFmmSazzJuWvZNCQHaLH?rs=1&pid=ImgDetMain" alt="Swish Tawook" >
+            Swish Tawook Flavor Puppy Food (Arabic)
+          </div>
+
+          <div class="filterDiv chinese">
+            <img src="https://redhousespice.com/wp-content/uploads/2021/10/chicken-chow-mein-in-a-wok-scaled.jpg" alt="Chow Mein" >
+            Chow Mein Flavor Puppy Food (Chinese)
+          </div>
+
+          <div class="filterDiv portuguese">
+            <img src="https://cdn-bmalj.nitrocdn.com/uirOOtSrYrqqUksKHkiSCjZGZlPeXsmk/assets/images/optimized/rev-88a144f/theplanetd.com/images/Portuguese-Food-Linguica.jpg" alt="Linguica" >
+            Linguica Flavor Puppy Food (Portuguese)
+          </div>
+
+        </div>
+      </div>
+     </div>
+   </div>
+
+   <script>
+    filterSelection("all")
+    function filterSelection(c) {
+      var x, i;
+      x = document.getElementsByClassName("filterDiv");
+      if (c == "all") c = "";
+      for (i = 0; i < x.length; i++) {
+        w3RemoveClass(x[i], "show");
+        if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+      }
+    }
+    
+    function w3AddClass(element, name) {
+      var i, arr1, arr2;
+      arr1 = element.className.split(" ");
+      arr2 = name.split(" ");
+      for (i = 0; i < arr2.length; i++) {
+        if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+      }
+    }
+    
+    function w3RemoveClass(element, name) {
+      var i, arr1, arr2;
+      arr1 = element.className.split(" ");
+      arr2 = name.split(" ");
+      for (i = 0; i < arr2.length; i++) {
+        while (arr1.indexOf(arr2[i]) > -1) {
+          arr1.splice(arr1.indexOf(arr2[i]), 1);     
+        }
+      }
+      element.className = arr1.join(" ");
+    }
+    
+    // Add active class to the current button (highlight it)
+    var btnContainer = document.getElementById("myBtnContainer");
+    var btns = btnContainer.getElementsByClassName("btn");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function(){
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+      });
+    }
+    </script>
+
     <footer>
       <p>
         <div class="container-fluid">
