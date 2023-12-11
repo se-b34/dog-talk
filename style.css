@@ -224,13 +224,6 @@ img{
   position:inline;
 }
 
-body{
-  background-image:url("https://codehs.com/uploads/60fd1ac556621008606e14964e87dbd2");
-  background-attachment:fixed;
-  background-size: 100% 100%;
-  text-align:center;
-}
-
 ul{
   list-style-type:none; // remove bullets
 }
